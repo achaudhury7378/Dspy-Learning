@@ -225,7 +225,6 @@ Token Usage:
 • Completion Tokens: {usage["completion_tokens"]}
 • Total Tokens: {usage["total_tokens"]}
         """.strip()
-
         return summary
     except Exception as e:
         return f"Error: {type(e).__name__}: {str(e)}"
