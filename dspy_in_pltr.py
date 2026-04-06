@@ -101,9 +101,9 @@ def test_source_connection() -> String:
         source = get_source("Openaiconnector")
         https_connection = source.get_https_connection()
         url = https_connection.url
-        return f"✅ Source 'Openaiconnector' found! URL: {url}"
+        return f"Source 'Openaiconnector' found! URL: {url}"
     except Exception as e:
-        return f"❌ Error accessing source 'Openaiconnector': {str(e)}"
+        return f"Error accessing source 'Openaiconnector': {str(e)}"
 
 
 @function(sources=["Openaiconnector"])
@@ -124,7 +124,7 @@ def openai_test(prompt: str) -> String:
 
         return content
     except Exception as e:
-        return f"❌ Error: {type(e).__name__}: {str(e)}"
+        return f"Error: {type(e).__name__}: {str(e)}"
 
 
 
@@ -211,7 +211,7 @@ def get_sentiment_summary(review: str) -> String:
 
         usage = lm.get_usage()
 
-        emoji_map = {"positive": "😊", "negative": "😞", "neutral": "😐"}
+        emoji_map = {"positive": "Happy", "negative": "Sad", "neutral": "Meh"}
         emoji = emoji_map.get(sentiment, "")
 
         summary = f"""
@@ -228,4 +228,4 @@ Token Usage:
 
         return summary
     except Exception as e:
-        return f"❌ Error: {type(e).__name__}: {str(e)}"
+        return f"Error: {type(e).__name__}: {str(e)}"
